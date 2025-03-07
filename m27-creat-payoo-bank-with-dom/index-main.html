@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document2</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.8/daisyui.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-800">
+    <section class="max-w-md min-h-screen mx-auto py-6 bg-gray-200">
+        <header>
+            <nav class="flex justify-around items-center">
+              <img src="./assets/Group.png" alt="">
+              <div>
+                <h1 class="text-3xl font-bold ">$ <span id="main-balance">4500</span></h1>
+                <p class="border rounded px-1">available balance</p>
+              </div>
+              <button class="btn">logout</button>
+            </nav>
+            <section class="mt-10 mx-3">
+                <h1 class="text-2xl font-bold mb-2">🔥 Welcome to Payooo!</h1>
+                <p>Enjoy easy and convenient financial services with us. CashOut charge is low and</p>
+
+                <div class="cards grid grid-cols-3 mt-10 gap-2">
+                  <div id="add-money-click" class="cursor-pointer box border p-4 text-center rounded-sm">
+                    <img class="w-8 mx-auto" src="./assets/wallet1.png" alt="">
+                    <h3>Add Money</h3>
+                  </div>
+                  <div id="Cash-out-click" class="cursor-pointer box border p-4 text-center rounded-sm space-y-2">
+                      <img class="w-8 mx-auto" src="./assets/wallet1.png" alt="">
+                      <h3>CashOut</h3>
+                  </div>
+                  <div id="bonus-click" class="cursor-pointer box border p-4 text-center rounded-sm space-y-2">
+                    <img class="w-8 mx-auto" src="./assets/wallet1.png" alt="">
+                    <h3>Bonus</h3>
+                  </div>
+                  <div id="Transfer-money-click" class="cursor-pointer box border p-4 text-center rounded-sm">
+                    <img class="w-8 mx-auto" src="./assets/wallet1.png" alt="">
+                    <h3>Transfer Money</h3>
+                  </div>
+                  <div id="pay-bill-click" class="cursor-pointer box border p-4 text-center rounded-sm space-y-2">
+                    <img class="w-8 mx-auto" src="./assets/wallet1.png" alt="">
+                    <h3>Pay Bill</h3>
+                  </div>
+                  <div id="transfer-history-click" class="cursor-pointer box border p-4 text-center rounded-sm">
+                    <img class="w-8 mx-auto" src="./assets/wallet1.png" alt="">
+                    <h3>Transaction History</h3>
+                  </div>
+                </div>
+                <!--all sections -->
+                <div id="section-div">
+                  <section id="add-money-section" class="mt-10">
+                      <h2 class="font-bold text-xl">Add Money</h2>
+                      <!-- copy code -->
+                      <div>
+                        <div class="hero-content flex-col lg:flex-row-reverse">
+                          <div class="card w-full bg-white shrink-0 shadow-sm">
+                            <div class="card-body">
+                                <!-- select copy -->
+                                <label for="" class="fieldset-label font-bold text-black text-sm">Select A Bank</label>
+                                <select class="select">
+                                    <option disabled selected>Select Bank</option>
+                                    <option value="Bkash">Bkash</option>
+                                    <option value="Nagad">Nagad</option>
+                                    <option value="DBBL">DBBL</option>
+                                </select>
+                                <fieldset class="fieldset">
+                                  <label class="fieldset-label font-bold text-black text-sm">Bank Account Number</label>
+                                  <input id="user-number" type="number" class="input" placeholder="Number" />
+                                  <label class="fieldset-label font-bold text-black text-sm">Amount to Add</label>
+                                  <input id="amount-money" type="number" class="input" placeholder="Amount"/>
+                                  <label class="fieldset-label font-bold text-black text-sm">Pin Number</label>
+                                  <input id="user-pin" type="number" class="input" placeholder="Enter 4 digit pin number"/>
+                                  <button id="add-money-btn" class="btn bg-blue-700 text-white mt-4">Add Money</button>
+                                </fieldset>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </section>
+                  <section id="Cashout-section" class="mt-10">
+                      <h2 class="font-bold text-xl">Cash Out</h2>
+                      <!-- copy code -->
+                      <div>
+                        <div class="hero-content flex-col lg:flex-row-reverse">
+                          <div class="card w-full bg-white shrink-0 shadow-sm">
+                            <div class="card-body">
+                                <fieldset class="fieldset">
+                                  <label class="fieldset-label font-bold text-black text-sm">Agent Number</label>
+                                  <input id="user-number-w" type="number" class="input" placeholder="Enter agent 11 digit number" />
+                                  <label class="fieldset-label font-bold text-black text-sm">Amount</label>
+                                  <input id="amount-money-w" type="number" class="input" placeholder="Enter Amount to withdraw"/>
+                                  <label class="fieldset-label font-bold text-black text-sm">Pin Number</label>
+                                  <input id="user-pin-w" type="number" class="input" placeholder="Enter 4 digit pin number"/>
+                                  <button id="withdraw-btn" class="btn bg-blue-700 text-white mt-4">Withdraw Money</button>
+                                </fieldset>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </section>
+                  <section id="Transfer-section" class="mt-10">
+                      <h2 class="font-bold text-xl">Transfer Money</h2>
+                      <!-- copy code -->
+                      <div>
+                          <div class="hero-content flex-col lg:flex-row-reverse">
+                            <div class="card w-full bg-white shrink-0 shadow-sm">
+                              <div class="card-body">
+                                  <fieldset class="fieldset">
+                                    <label class="fieldset-label font-bold text-black text-sm">User Account Number</label>
+                                    <input id="user-number-t" type="number" class="input" placeholder="Enter agent 11 digit number" />
+                                    <label class="fieldset-label font-bold text-black text-sm">Amount</label>
+                                    <input id="amount-money-t" type="number" class="input" placeholder="Enter Amount to transfer"/>
+                                    <label class="fieldset-label font-bold text-black text-sm">Pin Number</label>
+                                    <input id="user-pin-t" type="number" class="input" placeholder="Enter 4 digit pin number"/>
+                                    <button id="transfer-btn" class="btn bg-blue-700 text-white mt-4">Send Now</button>
+                                  </fieldset>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </section>
+                  <section id="bonus-section" class="mt-10">
+                      <h2 class="font-bold text-xl">Get Bonus</h2>
+                      <!-- copy code -->
+                      <div>
+                          <div class="hero-content flex-col lg:flex-row-reverse">
+                            <div class="card w-full bg-white shrink-0 shadow-sm">
+                              <div class="card-body">
+                                  <fieldset class="fieldset">
+                                    <label class="fieldset-label font-bold text-black text-sm">Enter Bonus Coupon</label>
+                                    <input id="user-number-b" type="number" class="input" placeholder="Enter coupon code"/>
+                                    <button id="bonus-btn" class="btn bg-blue-700 text-white mt-4">Get Bonus</button>
+                                  </fieldset>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </section>
+                  <section id="pay-bill-section" class="mt-10">
+                      <h2 class="font-bold text-xl">Pay Bill</h2>
+                      <!-- copy code -->
+                      <div>
+                          <div class="hero-content flex-col lg:flex-row-reverse">
+                            <div class="card w-full bg-white shrink-0 shadow-sm">
+                              <div class="card-body">
+                                  <fieldset class="fieldset">
+                                    <label class="fieldset-label font-bold text-black text-sm">Select to Pay</label>
+                                    <input id="user-number-p" type="number" class="input" placeholder="Select Back" />
+                                    <label class="fieldset-label font-bold text-black text-sm">Biller Account Number</label>
+                                    <input id="amount-money-p" type="number" class="input" placeholder="Enter Amount Number"/>
+                                    <label class="fieldset-label font-bold text-black text-sm">Account to Pay</label>
+                                    <input id="user-pin-p" type="number" class="input" placeholder="Add Amount to pay"/>
+                                    <label class="fieldset-label font-bold text-black text-sm">Pin Number</label>
+                                    <input id="user-pin-p" type="number" class="input" placeholder="Enter 4 digit pin number"/>
+                                    <button id="transfer" class="btn bg-blue-700 text-white mt-4">Pay Now</button>
+                                  </fieldset>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </section>
+                  <section id="transfer-history-section" class="mt-10">
+                      <div class="space-y-5 mx-4 ">
+                          <div class="flex justify-between items-center ">
+                              <p class="font-bold text-black text-xl">Transaction History</p>
+                              <p class="font-bold text-sm">View All</p>
+                          </div>
+                          <div class="space-y-3 ">
+                              <div class="rounded-md p-3   flex space-x-3 h-14 bg-white shadow-sm">
+                                  <img src="assets/purse1.png" alt="">
+                                  <p>Electricity Bill</p>        
+                              </div>
+                              <div class="rounded-md p-3 h-14 bg-white shadow-sm flex space-x-3">
+                                  <img src="assets/purse1.png" alt="">
+                                  <p>Bank Deposit</p>
+                              </div>
+                              <div class="rounded-md p-3 h-14 bg-white shadow-sm flex space-x-3">
+                                  <img src="assets/purse1.png" alt="">
+                                  <p>Mobile Recharge</p>
+                              </div>
+                              <div class="rounded-md p-3 h-14 bg-white flex space-x-3 shadow-sm">
+                                  <img src="assets/purse1.png" alt="">
+                                  <p>Gas Bill</p>
+                              </div>
+                          </div>
+                      </div>
+                  </section>
+                </div>
+            </section>
+        </header>
+    </section>
+
+    <script src="index-main.js"></script>
+</body>
+</html>

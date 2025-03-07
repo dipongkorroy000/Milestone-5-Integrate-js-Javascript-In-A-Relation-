@@ -1,0 +1,19 @@
+/* .lecture-3 */
+body{
+    background-color: rgb(237, 231, 224);
+}
+
+h1{
+    color: rgb(43, 184, 30);
+}
+#fvTitle{
+    color: rgb(95, 95, 242);
+}
+.fvPlaces-li{
+    color: rgb(37, 154, 158);
+}
+
+/* lecture-4 */
+.fruitsContainer li{
+    color: blueviolet;
+}
