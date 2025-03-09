@@ -40,13 +40,22 @@ for (let btn of qtEle) {
   });
 }
 
-let cartCount = 0;
+// let cartCount = 0;
 document.getElementById("add-to-cart").addEventListener("click", () => {
   const quantity = parseInt(document.getElementById("quantity").innerText);
   if (quantity > 0) {
     document.getElementById("checkout-container").classList.remove("hidden");
-    cartCount += quantity;
-    document.getElementById("cart-count").innerText = cartCount;
+    // cartCount += quantity;
+    document.getElementById("cart-count").innerText = quantity;
+      
+
+
+    const cBtn = document.querySelector('button.border-purple-600.w-7');
+    
+
+   
+
+
   } else {
     alert("please select a quantity");
   }
