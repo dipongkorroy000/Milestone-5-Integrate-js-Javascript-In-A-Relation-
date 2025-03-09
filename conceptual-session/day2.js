@@ -35,9 +35,19 @@ for (let btn of qtEle) {
     const plusAndM = document.getElementById("quantity");
     const stringToNum = parseInt(plusAndM.innerText);
 
-      const newQuantity = Math.max(0, stringToNum + amount);
-      plusAndM.innerText = newQuantity;
+    const newQuantity = Math.max(0, stringToNum + amount);
+    plusAndM.innerText = newQuantity;
   });
 }
 
-
+let cartCount = 0;
+document.getElementById("add-to-cart").addEventListener("click", () => {
+  const quantity = parseInt(document.getElementById("quantity").innerText);
+  if (quantity > 0) {
+    document.getElementById("checkout-container").classList.remove("hidden");
+    cartCount += quantity;
+    document.getElementById("cart-count").innerText = cartCount;
+  } else {
+    alert("please select a quantity");
+  }
+});
