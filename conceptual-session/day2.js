@@ -27,4 +27,17 @@ const selectWristSize = (model) => {
   }
 };
 
+const qtEle = document.getElementsByClassName("quantity-btn");
+for (let btn of qtEle) {
+  btn.addEventListener("click", (e) => {
+    const amount = e.target.innerText === "+" ? 1 : -1;
+
+    const plusAndM = document.getElementById("quantity");
+    const stringToNum = parseInt(plusAndM.innerText);
+
+      const newQuantity = Math.max(0, stringToNum + amount);
+      plusAndM.innerText = newQuantity;
+  });
+}
+
 
