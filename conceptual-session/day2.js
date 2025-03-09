@@ -1,6 +1,7 @@
 const cBtns = document.getElementsByClassName("ring-button");
 // console.log(cBtns);
 
+
 for (let cBtn of cBtns) {
   cBtn.addEventListener("click", (e) => {
     for (let c of cBtns) {
@@ -12,6 +13,7 @@ for (let cBtn of cBtns) {
     const productImg = document.getElementById("product-image");
     // productImg.src = "./images/gray.png";
     productImg.src = "./images/" + color + ".png";
+    // console.log(productImg);
   });
 }
 
@@ -41,6 +43,7 @@ for (let btn of qtEle) {
 }
 
 // let cartCount = 0;
+let cartItems = [];
 document.getElementById("add-to-cart").addEventListener("click", () => {
   const quantity = parseInt(document.getElementById("quantity").innerText);
   if (quantity > 0) {
@@ -49,14 +52,53 @@ document.getElementById("add-to-cart").addEventListener("click", () => {
     document.getElementById("cart-count").innerText = quantity;
       
 
+    // checkout box ---
+    const cBtns = document.querySelector('button.border-purple-600.w-7');
+    const cBtn = cBtns.id.split('-')[0];
+    // console.log(cBtn);
 
-    const cBtn = document.querySelector('button.border-purple-600.w-7');
-    
+    const modelBtns = document.querySelector('button.border-purple-600:not(.w-7)');
+    const mBtnSize = modelBtns.innerText.split(' ')[0];
+    const mBtnPrice = modelBtns.innerText.split(' ')[1].split('$')[1];
+    // console.log(mBtnSize, mBtnPrice);
 
-   
-
-
-  } else {
+    cartItems.push({
+      image: cBtn + '.png',
+      title: 'Classy Modern Smart Watch',
+      color: cBtn,
+      size: mBtnSize,
+      price: quantity * parseInt(mBtnPrice)
+    });
+    // console.log(cartItems); 
+  }
+  else {
     alert("please select a quantity");
   }
 });
+
+
+let productImage = "./images/";
+document.getElementById('checkout-btn').addEventListener('click', () => {
+  const cartModel = document.getElementById('cart-modal');
+  const cartContainer = document.getElementById('cart-items')
+
+  for (let item of cartItems) {
+    // console.log(item);
+    const row = document.createElement('tr');
+    row.classList.add('border-b');
+    row.innerHTML = `
+    <td>
+      <div class = "flex items-center space-x-2">
+        <img src = ${productImage}${item.image}" >
+        <span class = "font-semibold">${item.title}</span>
+      </div>
+    </td>
+    `
+    // not finding img problem---
+    cartContainer.appendChild(row);
+    console.log(row);
+
+  }
+
+  cartModel.classList.remove('hidden');
+})
