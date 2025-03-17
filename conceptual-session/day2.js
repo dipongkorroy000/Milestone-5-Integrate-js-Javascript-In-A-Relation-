@@ -46,12 +46,12 @@ for (let btn of qtEle) {
 let cartItems = [];
 document.getElementById("add-to-cart").addEventListener("click", () => {
   const quantity = parseInt(document.getElementById("quantity").innerText);
+  document.getElementById("quantity").innerText = 0;
   if (quantity > 0) {
     document.getElementById("checkout-container").classList.remove("hidden");
     // cartCount += quantity;
     document.getElementById("cart-count").innerText = quantity;
       
-
     // checkout box ---
     const cBtns = document.querySelector('button.border-purple-600.w-7');
     const cBtn = cBtns.id.split('-')[0];
@@ -67,6 +67,7 @@ document.getElementById("add-to-cart").addEventListener("click", () => {
       title: 'Classy Modern Smart Watch',
       color: cBtn,
       size: mBtnSize,
+      quantity:quantity,
       price: quantity * parseInt(mBtnPrice)
     });
     // console.log(cartItems); 
@@ -82,23 +83,34 @@ document.getElementById('checkout-btn').addEventListener('click', () => {
   const cartModel = document.getElementById('cart-modal');
   const cartContainer = document.getElementById('cart-items')
 
+  let totalQua = 0;
+  let totalPri = 0;
+
   for (let item of cartItems) {
     // console.log(item);
     const row = document.createElement('tr');
     row.classList.add('border-b');
     row.innerHTML = `
     <td>
-      <div class = "flex items-center space-x-2">
-        <img src = ${productImage}${item.image}" >
-        <span class = "font-semibold">${item.title}</span>
-      </div>
+    <div class = "flex items-center space-x-2">
+    <img class = "w-10 h-10 rounded-md p-1" src = "${productImage}${item.image}" />
+    <span class = "font-semibold">${item.title}</span>
+    </div>
     </td>
-    `
-    // not finding img problem---
+    <td class = "px-4 py-2 font-semibold">${item.color}</td>
+    <td class = "px-4 py-2 font-semibold">${item.size}</td>
+    <td class = "px-4 py-2 font-semibold">${item.quantity}</td>
+    <td class = "px-4 py-2 font-semibold">${item.price}</td>
+    `;
     cartContainer.appendChild(row);
-    console.log(row);
-
+    totalQua += parseInt(`${item.quantity}`);
+    totalPri += parseInt(`${item.price}`);
   }
-
+  // console.log(totalQua);
   cartModel.classList.remove('hidden');
+  let totalQuantity = document.getElementById('total-quantity');
+  totalQuantity.innerText = totalQua;
+  let totalPrice = document.getElementById('total-price');
+  totalPrice.innerText = totalPri;
+
 })
