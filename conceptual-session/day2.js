@@ -108,9 +108,15 @@ document.getElementById('checkout-btn').addEventListener('click', () => {
   }
   // console.log(totalQua);
   cartModel.classList.remove('hidden');
+
   let totalQuantity = document.getElementById('total-quantity');
   totalQuantity.innerText = totalQua;
   let totalPrice = document.getElementById('total-price');
   totalPrice.innerText = totalPri;
 
+})
+
+document.getElementById('continue-shopping').addEventListener('click', () => {
+  document.getElementById('cart-modal').classList.add('hidden');
+  document.getElementById('cart-items').innerText = '';
 })
